@@ -1,15 +1,15 @@
-if SHIELD_SPLIT_DOS_LEFT
+if SHIELD_SPLIT_TRES_LEFT
 
 # Name must be less than 16 characters long!
 config ZMK_KEYBOARD_NAME
-    default "SplitDos"
+    default "SplitTres"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
 endif
 
-if SHIELD_SPLIT_DOS_RIGHT
+if SHIELD_SPLIT_TRES_RIGHT
 
 config ZMK_SPLIT_ROLE_PERIPHERAL
     bool
@@ -17,11 +17,11 @@ config ZMK_SPLIT_ROLE_PERIPHERAL
 
 # Right half needs to know it's the peripheral
 config ZMK_KEYBOARD_NAME
-    default "SplitDos R"
+    default "SplitTres R"
 
 endif
 
-if SHIELD_SPLIT_DOS_LEFT || SHIELD_SPLIT_DOS_RIGHT
+if SHIELD_SPLIT_TRES_LEFT || SHIELD_SPLIT_TRES_RIGHT
 
 config ZMK_SPLIT
     default y

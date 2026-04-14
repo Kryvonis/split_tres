@@ -37,7 +37,7 @@
 
     layout: layout {
         compatible = "zmk,physical-layout";
-        display-name = "SplitDos";
+        display-name = "SplitTres";
         transform = <&transform>;
         kscan = <&kscan>;
 

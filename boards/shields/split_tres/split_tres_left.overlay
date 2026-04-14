@@ -1,4 +1,4 @@
-#include "split_dos.dtsi"
+#include "split_tres.dtsi"
 
 &kscan {
     col-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>,
