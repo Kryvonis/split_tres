@@ -1,0 +1,6 @@
+config SHIELD_SPLIT_DOS_LEFT
+  def_bool $(shields_list_contains,split_dos_left)
+
+config SHIELD_SPLIT_DOS_RIGHT
+  def_bool $(shields_list_contains,split_dos_right)
+

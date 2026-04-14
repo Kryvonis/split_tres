@@ -1,0 +1,32 @@
+if SHIELD_SPLIT_DOS_LEFT
+
+# Name must be less than 16 characters long!
+config ZMK_KEYBOARD_NAME
+    default "SplitDos"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_SPLIT_DOS_RIGHT
+
+config ZMK_SPLIT_ROLE_PERIPHERAL
+    bool
+    default y
+
+# Right half needs to know it's the peripheral
+config ZMK_KEYBOARD_NAME
+    default "SplitDos R"
+
+endif
+
+if SHIELD_SPLIT_DOS_LEFT || SHIELD_SPLIT_DOS_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_BLE
+    default y
+
+endif

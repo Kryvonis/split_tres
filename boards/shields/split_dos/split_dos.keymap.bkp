@@ -1,0 +1,100 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define MAC 0
+#define WINDOWS 1
+#define GAME 2
+#define CODE 3
+#define NUMBER 4
+#define FUNCTION 5
+
+// Behavior Overrides
+&lt {
+    tapping-term-ms = <200>;
+    flavor = "hold-preferred";
+};
+
+/ {
+    macros {
+        spotlight: spotlight {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LGUI>, <&macro_tap &kp SPACE>, <&macro_release &kp LGUI>; 
+        };
+
+        // Emoji
+        mac_emoji: mac_emoji {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LGUI>, <&macro_press &kp LCTRL>, <&macro_tap &kp SPACE>, <&macro_release &kp LCTRL>, <&macro_release &kp LGUI>; 
+        };
+
+        windows_emoji: windows_emoji {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LGUI>, <&macro_tap &kp DOT>, <&macro_release &kp LGUI>; 
+        };
+    };
+
+    behaviors {
+        bm: bottom_row_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <135>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+
+        cm: code_row_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+            retro-tap;
+        };
+
+        sm: space_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        td_multi_mac: tap_dance_multi_mac {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sm ESC LALT>, <&spotlight>, <&kp LCTRL>, <&mac_emoji>;
+        };
+
+        td_multi_windows: tap_dance_multi_windows {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sm ESC LALT>, <&kp LGUI>, <&windows_emoji>;
+        };
+    };
+    
+    keymap {
+        compatible = "zmk,keymap";
+
+        mac_default_layer {
+            display-name = "Mac";
+            bindings = <
+                &kp TAB       &kp Q         &kp W &kp F     &kp P    &kp G          &kp J        &kp L            &kp U     &kp Y   &kp BSPC       &kp BSPC
+                &kp CAPS      &kp A         &kp R &kp S     &kp T    &kp D          &kp H        &kp N            &kp E     &kp I   &kp O          &kp ENTER
+                &kp LSHFT     &bm LSHFT Z   &kp X &kp C     &kp V    &kp B          &kp K        &kp M            &kp COMMA &kp DOT &bm RSHFT FSLH &kp RSHFT
+                &td_multi_mac &td_multi_mac &none &kp LCTRL &kp LALT &sm LGUI SPACE &none        &none            &none     &none   &none          &none
+                                                  &none     &none    &none          &none        &none            &none
+                                                  &none     &none    &none          &none        &none            &none
+            >;
+        };
+
+    };
+};
