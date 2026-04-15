@@ -1,0 +1,6 @@
+# Zephyr module: keyboard shield lives under boards/shields/
+# https://zmk.dev/docs/development/module-creation
+name: zmk-keyboard-split_tres
+build:
+  settings:
+    board_root: .

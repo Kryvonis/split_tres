@@ -1,0 +1,12 @@
+file_format: "1"
+id: split_tres
+name: SplitTres
+type: shield
+url: https://github.com/Kryvonis/split_tres
+requires: [pro_micro]
+features:
+  - keys
+  - display
+siblings:
+  - split_tres_left
+  - split_tres_right
