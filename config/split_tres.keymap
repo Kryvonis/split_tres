@@ -8,6 +8,11 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define DEFAULT 0
+#define SYSTEM  1
+#define GAME    2
+#define FUNCTION 3
+
 /*
  * nice!nano + nice!view: CS must be on SPI CS (default ZMK uses D4 / P0.22).
  * If your PCB wires CS elsewhere, change the pin below to match the board.
