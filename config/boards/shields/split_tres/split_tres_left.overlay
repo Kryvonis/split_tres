@@ -1,5 +1,6 @@
 #include "split_tres.dtsi"
 
+/* Col0..5: pins 4,5,6,7,8,9 (inverse of right half) */
 &kscan {
     col-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>,
                 <&pro_micro 5 GPIO_ACTIVE_HIGH>,
