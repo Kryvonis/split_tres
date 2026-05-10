@@ -13,14 +13,6 @@
 #define GAME    2
 #define FUNCTION 3
 
-/*
- * nice!nano + nice!view: CS must be on SPI CS (default ZMK uses D4 / P0.22).
- * If your PCB wires CS elsewhere, change the pin below to match the board.
- * Do not share that GPIO with a matrix column — scan + display will corrupt.
- */
-nice_view_spi: &spi0 {
-    cs-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
-};
 
 &lt {
     tapping-term-ms = <200>;
