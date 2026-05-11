@@ -4,6 +4,9 @@
 / {
     chosen {
         zmk,physical-layout = &layout;
+        /delete-property/ zephyr,console;
+        /delete-property/ zephyr,shell-uart;
+        /delete-property/ zephyr,uart-mcumgr;
     };
 
     kscan: kscan {
