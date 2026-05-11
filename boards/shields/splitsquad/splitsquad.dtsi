@@ -7,12 +7,6 @@
         zephyr,console = &cdc_acm_uart0;
     };
 
-&zephyr_udc0 {
-    cdc_acm_uart0: cdc_acm_uart0 {
-        compatible = "zephyr,cdc-acm-uart";
-    };
-};
-
     kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
@@ -140,4 +134,10 @@ nice_view_spi: &spi1 {
 
 &uart0 {
     status = "disabled";
+};
+
+&zephyr_udc0 {
+    cdc_acm_uart0: cdc_acm_uart0 {
+        compatible = "zephyr,cdc-acm-uart";
+    };
 };
