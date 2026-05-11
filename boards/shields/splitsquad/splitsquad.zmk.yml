@@ -1,0 +1,12 @@
+file_format: "1"
+id: splitsquad
+name: SplitSquad
+type: shield
+url: https://github.com/Kryvonis/splitsquad
+requires: [pro_micro]
+features:
+  - keys
+  - display
+siblings:
+  - splitsquad_left
+  - splitsquad_right

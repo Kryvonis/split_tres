@@ -1,4 +1,4 @@
-#include "split_tres.dtsi"
+#include "splitsquad.dtsi"
 
 /* Col0..5: pins 4,5,6,7,8,9 (inverse of right half) */
 &kscan {
